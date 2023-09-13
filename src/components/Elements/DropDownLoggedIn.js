@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getUserData } from '../../services';
 import { Link, useNavigate } from "react-router-dom";
+import { getUserData } from '../../services';
 export const DropdownLoggedIn = ({ setDropdown }) => {
     const [user, setUser] = useState({});
     const navigate = useNavigate();
