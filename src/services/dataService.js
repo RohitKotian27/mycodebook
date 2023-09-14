@@ -1,6 +1,6 @@
 function getRequiredTokens() {
-    const token = JSON.parse(sessionStorage.getItem('token'));
     const cbid = JSON.parse(sessionStorage.getItem('cbid'));
+    const token = JSON.parse(sessionStorage.getItem('token'));
     return { token, cbid };
 }
 
