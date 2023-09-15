@@ -42,9 +42,7 @@ export async function createUserOrder(cartList, total, user) {
         },
         body: JSON.stringify(order)
     };
-    const response = await fetch(`${process.env.REACT_APP_HOST}/660/orders/`, requestOptions);
-    const data = await response.json();
-    return data;
+    await fetch(`${process.env.REACT_APP_HOST}/660/orders/`, requestOptions);
 }
 
 export async function getUserOrder() {

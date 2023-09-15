@@ -8,7 +8,7 @@ export const OrderPage = () => {
     useTitle('Order Summary')
     return (
         <main>
-            {state.status ? <OrderSuccess data={state.data} /> : <OrderFail />}
+            {state.status ? <OrderSuccess /> : <OrderFail />}
         </main>
     )
 }

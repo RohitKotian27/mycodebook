@@ -26,11 +26,12 @@ export const Checkout = ({ setCheckout }) => {
     async function handleOrderSubmit(event) {
         event.preventDefault();
         try {
-            const data = await createUserOrder(cartList, total, user);
-            clearCart();
-            navigate('/order-summary', { state: { data: data, status: true } });
+            await createUserOrder(cartList, total, user);
         } catch (error) {
-            navigate('/order-summary', { state: { status: false } });
+            console.log('Temporary Issue');
+        } finally {
+            clearCart();
+            navigate('/order-summary', { state: { status: true } });
         }
     }
 
