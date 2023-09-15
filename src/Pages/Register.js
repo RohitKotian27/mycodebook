@@ -13,13 +13,14 @@ export const Register = () => {
       email: event.target.email.value,
       password: event.target.password.value,
     };
-    const response = await register(authDetail).catch(() => 'Registration successful');
-    if (response.includes("Email already exists")) {
-      toast.error(response);
-    } else {
+    const response = await register(authDetail).catch(
+      () => "Registration successful"
+    );
+    if (response.includes("Registration successful")) {
       toast.info("You have successfully registered. Please re-login");
-      setTimeout(3000);
       navigate("/login");
+    } else {
+      toast.error(response);
     }
   };
   return (
