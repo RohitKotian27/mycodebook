@@ -13,8 +13,8 @@ export const Register = () => {
             email: event.target.email.value,
             password: event.target.password.value
         };
-        const response = await register(authDetail);
-        response.accessToken ? navigate('/products') : toast.error(response);
+        const response = await register(authDetail).catch((err) => 'No response');
+        response?.includes('Email already exists') ? toast.error(response) : navigate('/products');
     }
     return (
         <main>
