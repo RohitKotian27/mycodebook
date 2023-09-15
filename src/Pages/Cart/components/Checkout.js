@@ -24,16 +24,14 @@ export const Checkout = ({ setCheckout }) => {
     }, [token, cbid]);
 
     async function handleOrderSubmit(event) {
-      event.preventDefault();
-      let data;
-      try {
-        data = await createUserOrder(cartList, total, user);
-      } catch (error) {
-        console.log("Some Error Occured");
-      } finally {
-        navigate("/order-summary", { state: { data: data, status: true } });
-        clearCart();
-      }
+        event.preventDefault();
+        try {
+            const data = await createUserOrder(cartList, total, user);
+            clearCart();
+            navigate('/order-summary', { state: { data: data, status: true } });
+        } catch (error) {
+            navigate('/order-summary', { state: { status: false } });
+        }
     }
 
     return (
