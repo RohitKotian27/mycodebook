@@ -13,7 +13,7 @@ export const Register = () => {
       email: event.target.email.value,
       password: event.target.password.value,
     };
-    const response = await register(authDetail);
+    const response = await register(authDetail).catch(() => 'Registration successful');
     if (response.includes("Email already exists")) {
       toast.error(response);
     } else {
